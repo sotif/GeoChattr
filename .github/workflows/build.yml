@@ -1,0 +1,45 @@
+name: Build Vue
+on: [push]
+jobs:
+  build_vue:
+    runs-on: ubuntu-latest
+    name: Build Vue
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Setup node
+        uses: actions/setup-node@v1
+      - name: setup git
+        run: |
+          git config --global user.name "Auto-Builder"
+          git config --global user.email ""
+          echo "sha_short=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: check it
+        run: |
+          if git ls-remote --exit-code https://github.com/sotif/GeoChattr.git gh-pages; then
+            echo "pull=true" >> $GITHUB_ENV
+          else
+            echo "pull=false" >> $GITHUB_ENV
+          fi
+      - name: clone it
+        if: ${{ env.pull == 'true' }}
+        run: git clone -b gh-pages https://github.com/sotif/GeoChattr.git old_dist
+      - name: create it
+        if: ${{ env.pull == 'false' }}
+        run: |
+          mkdir old_dist
+          cd old_dist
+          git init --initial-branch=gh-pages
+      - name: build it
+        run: |
+          npm ci
+          npm run build
+      - name: push build
+        run: |
+          cp -r dist/* old_dist
+          cd old_dist
+          git status
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Build: ${{ env.sha_short }}"
+          git push https://sotif:${{ secrets.GITHUB_TOKEN }}@github.com/sotif/GeoChattr.git gh-pages
+
