@@ -1,17 +1,58 @@
 <template>
-  <div class="form__group field">
-    <input type="input" class="form__field" placeholder="Name" autocomplete="off" name="name" id='name' required />
-    <label for="name" class="form__label">Name</label>
-  </div>
+  <form :action="playGame">
+    <div class="form__group field">
+      <input v-model="channel_name" type="text" class="form__field" placeholder="Name" autocomplete="off" id='name' required />
+      <label for="name" class="form__label">Name</label>
+    </div>
+  </form>
 </template>
 
 <script>
+//import InputField from '@/components/InputField'
+
 export default {
-  name: 'InputField',
+  name: 'Home',
+  components: {
+    //InputField,
+  },
+  data: function() {
+    return {
+      channel_name: null,
+      connection: null
+    }
+  },
+
+  computed: {
+    playGame() {
+      return "#/" + "Game/" + this.channel_name;
+    }
+
+  },
+
+  beforeCreate: function() {
+    document.body.className = 'home';
+  }
 }
 </script>
 
-<style scoped>
+<style>
+
+html, body, #app {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100%;
+  justify-content: center;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  justify-content: center;
+  font-size: 1.5rem;
+  margin: 0;
+}
 
 .form__group {
   position: relative;
@@ -32,9 +73,11 @@ export default {
   background: transparent;
   transition: border-color 0.2s;
 }
+
 .form__field::placeholder {
   color: transparent;
 }
+
 .form__field:placeholder-shown ~ .form__label {
   font-size: 1.3rem;
   cursor: text;
@@ -57,6 +100,7 @@ export default {
   border-image: linear-gradient(to right, #11998e, #38ef7d);
   border-image-slice: 1;
 }
+
 .form__field:focus ~ .form__label {
   position: absolute;
   top: 0;
@@ -65,6 +109,10 @@ export default {
   font-size: 1rem;
   color: #11998e;
   font-weight: 700;
+}
+
+#app {
+  min-height: 100%;
 }
 
 /* reset input */
