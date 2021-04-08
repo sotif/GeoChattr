@@ -1,8 +1,8 @@
 <template>
   <div class="form__group field">
     <form :action="playGame">
-      <input v-model="channel_name" type="text" class="form__field" placeholder="Name" autocomplete="off" id='name' required />
-      <label for="name" class="form__label">Name</label>
+      <input v-model="channel_name" type="text" class="form__field" placeholder="name" autocomplete="off" id='name' required />
+      <label for="name" class="form__label">Channel name</label>
     </form>
   </div>
   <Footer></Footer>
