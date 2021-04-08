@@ -1,20 +1,23 @@
 <template>
-  <form :action="playGame">
-    <div class="form__group field">
+  <div class="form__group field">
+    <form :action="playGame">
       <input v-model="channel_name" type="text" class="form__field" placeholder="Name" autocomplete="off" id='name' required />
       <label for="name" class="form__label">Name</label>
-    </div>
-  </form>
+    </form>
+  </div>
+  <Footer></Footer>
 </template>
 
 <script>
-//import InputField from '@/components/InputField'
+import Footer from '@/components/Footer.vue'
 
 export default {
+
   name: 'Home',
   components: {
-    //InputField,
+    'Footer': Footer,
   },
+
   data: function() {
     return {
       channel_name: null,
