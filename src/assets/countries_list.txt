@@ -17,7 +17,7 @@ Argentina -- Argentina -- Argentine Republic -- United Provinces of the Río de 
 
 Armenia -- Armenia -- Republic of Armenia
 
-Australia -- Australia -- Commonwealth of Australia
+Australia -- Australia -- Commonwealth of Australia -- AUS
 
 Azerbaijan -- Azerbaijan -- Republic of Azerbaijan
 
@@ -260,7 +260,7 @@ Nepal -- Nepal -- Federal Democratic Republic of Nepal
 
 Netherlands -- Kingdom of the Netherlands -- Aruba -- Curaçao -- Netherlands -- Sint Maarten
 
-New Zealand -- New Zealand -- Tokelau -- Ross Dependency -- Cook Islands -- Niue
+New Zealand -- New Zealand -- Tokelau -- Ross Dependency -- Cook Islands -- Niue -- NZ
 
 Nicaragua -- Nicaragua -- Republic of Nicaragua
 
@@ -338,7 +338,7 @@ Solomon Islands -- Solomon Islands
 
 Somalia -- Somalia -- Federal Republic of Somalia
 
-South Africa -- South Africa -- Republic of South Africa
+South Africa -- South Africa -- Republic of South Africa -- ZA -- SA
 
 South Sudan -- South Sudan -- Republic of South Sudan
 
@@ -378,11 +378,11 @@ Uganda -- Uganda -- Republic of Uganda
 
 Ukraine -- Ukraine
 
-United Arab Emirates -- United Arab Emirates
+United Arab Emirates -- United Arab Emirates -- UAE
 
-United Kingdom -- United Kingdom -- United Kingdom of Great Britain and Northern Ireland -- Akrotiri and Dhekelia -- Anguilla -- Bermuda -- British Indian Ocean Territory -- British Virgin Islands -- Cayman Islands -- Falkland Islands -- Gibraltar -- Montserrat -- Pitcairn Islands -- Saint Helena, Ascension and Tristan da Cunha -- South Georgia and the South Sandwich Islands -- Turks and Caicos Islands -- British Antarctic Territory -- Bailiwick of Guernsey -- Guernsey -- Isle of Man -- Jersey
+United Kingdom -- United Kingdom -- United Kingdom of Great Britain and Northern Ireland -- Akrotiri and Dhekelia -- Anguilla -- Bermuda -- British Indian Ocean Territory -- British Virgin Islands -- Cayman Islands -- Falkland Islands -- Gibraltar -- Montserrat -- Pitcairn Islands -- Saint Helena, Ascension and Tristan da Cunha -- South Georgia and the South Sandwich Islands -- Turks and Caicos Islands -- British Antarctic Territory -- Bailiwick of Guernsey -- Guernsey -- Isle of Man -- Jersey -- UK
 
-United States -- United States -- United States of America -- American Samoa -- Samoa -- Guam -- Northern Marina Islands -- Puerto Rico -- U.S. Virgin Islands -- Baker Island -- Howland Island -- Jarvis Island -- Johnston Atoll -- Kingman Reef -- Midway Atoll -- Navassa Island -- Wake Island -- Bajo Nuevo Bank -- Serranilla Bank -- Marshall Islands -– Republic of the Marshall Islands -- Micronesia -– Federated States of Micronesia -- Palau -– Republic of Palau
+United States -- United States -- United States of America -- American Samoa -- Samoa -- Guam -- Northern Marina Islands -- Puerto Rico -- U.S. Virgin Islands -- Baker Island -- Howland Island -- Jarvis Island -- Johnston Atoll -- Kingman Reef -- Midway Atoll -- Navassa Island -- Wake Island -- Bajo Nuevo Bank -- Serranilla Bank -- Marshall Islands -– Republic of the Marshall Islands -- Micronesia -– Federated States of Micronesia -- Palau -– Republic of Palau -- USA -- US
 
 Uruguay -- Uruguay -- Oriental Republic of Uruguay
 
