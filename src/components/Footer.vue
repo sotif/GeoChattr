@@ -29,7 +29,7 @@ export default {
   text-align: left;
   margin-left: 10px;
   margin-bottom: 10px;
-  font-size: 10px;
+  font-size: 12px;
 }
 
 </style>
