@@ -10,6 +10,7 @@
 
 <script>
 import _ from 'lodash';
+import tmi from 'tmi.js';
 import countries from 'raw-loader!@/assets/countries_list.txt';
 
 export default {
@@ -24,7 +25,7 @@ export default {
 
   data: function() {
     return {
-      ws: null,
+      client: null,
       valid_guesses: [],
       items: [1, 2, 3, 4, 5, 6, 7, 8, 9],
       countries: null,
@@ -42,38 +43,46 @@ export default {
   },
 
   updated: function() {
-    console.log("JOINing channel: " + channel_name);
-    this.ws.send('JOIN #' + channel_name);
-    this.ws.onmessage = function(event) {
-      var message = event.data.split("#" + channel_name + " :", 2)[1];
-      //console.log(message);
+    if (channel_name != null) {
+      this.client.join(channel_name);
     }
   },
 
   created: function() {
     var vm = this;
-
     vm.loadAnswers();
 
-    console.log("Starting connection to websocket chat server.");
-    this.ws = new WebSocket("wss://irc-ws.chat.twitch.tv:443");
-
-    this.ws.onopen = function(event) {
-      console.log(event);
-      console.log("Successfully connected to " + vm.channel_name);
-      this.send('PASS oauth:123');
-      this.send('NICK justinfan12347561');
-      this.send('JOIN #' + vm.channel_name);
+    let options = {
+      options: {
+        debug: true
+      },
+      connection: {
+        reconnect: true,
+        secure: true
+      },
+      identity: {
+        username: "justinfan12345677654",
+        password: "oauth:123"
+      },
+      channels: [ "#" + vm.channel_name ]
     }
+    this.client = new tmi.client(options);
+    this.client.connect();
 
-    this.ws.onmessage = function(event) {
-      var message = event.data.split("#" + vm.channel_name + " :", 2)[1];
-      if (message != null) {
-        if(vm.is_valid_guess(message)) {
-          vm.add_guess(message);
+    this.client.on("chat", (channel, userstate, message, self) => {
+      // Don't listen to my own messages..
+      if (self) return;
+      vm.add_guess(message);
+      if (userstate["mod"] || userstate["badges"]["broadcaster"] == 1) {
+        console.log("mod or broadcaster said something");
+        if(message.trim() == "!reset") {
+          console.log("Resetting guesses");
+          this.end_round();
         }
       }
-    }
+      // Do your stuff.
+    });
+
   },
 
   beforeCreate: function() {
@@ -81,6 +90,9 @@ export default {
   },
 
   methods: {
+    end_round: function() {
+      this.guesses = {};
+    },
     add_guess: function(guess) {
       console.log("Adding guess");
       if(this.is_valid_guess(guess)) {
