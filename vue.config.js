@@ -10,5 +10,13 @@ module.exports = {
         args[0].title = "GeoChattr";
         return args;
       })
+  },
+  chainWebpack: config => {
+    config.module
+      .rule('raw')
+      .test(/\.txt$/)
+      .use('raw-loader')
+      .loader('raw-loader')
+      .end()
   }
 }

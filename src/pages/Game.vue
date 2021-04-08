@@ -2,6 +2,7 @@
 </template>
 
 <script>
+import countries from 'raw-loader!@/assets/countries_list.txt';
 
 export default {
   name: 'Game',
@@ -11,7 +12,7 @@ export default {
 
   props: [
     'channel_name',
-    ],
+  ],
 
   data: function() {
     return {
@@ -52,6 +53,22 @@ export default {
   },
   beforeCreate: function() {
     document.body.className = 'game';
+  },
+
+  loadAnswers: function() {
+    console.log("Loading countries");
+    var country_dict = {};
+    var temp = countries.split("\\n");
+    for(var i = 0; i < temp.length; ++i) {
+      if(temp[i] != "" && temp[i] != "export default \"" && temp[i] != "\";") {
+        var alternatives = temp[i].split(" -- ");
+        for(var j = 0; j < alternatives.length; ++j) {
+          country_dict[alternatives[j].trim().toLowerCase()] = alternatives[0].trim();
+        }
+      }
+    }
+    this.valid_guesses = country_dict;
+    console.log(this.valid_guesses);
   }
 }
 </script>
