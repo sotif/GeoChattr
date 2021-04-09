@@ -139,6 +139,10 @@ body {
   right: 65px;
 }
 
+li {
+  text-shadow: 0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white;
+}
+
 .list-move {
   transition: transform 0.8s ease;
 }
