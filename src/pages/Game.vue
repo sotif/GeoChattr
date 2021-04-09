@@ -1,8 +1,8 @@
 <template>
-  <div id="flip-list-demo">
+  <div id="flip-list">
     <transition-group name="list" tag="ul">
-      <li style="list-style-type: none; text-align: center;" v-for="(country, index) in orderedGuesses" :key="country[0]">
-        {{ country[0] }} -- {{ country[1] }}
+      <li style="list-style-type: none; text-align: right;" v-for="(country, index) in orderedGuesses" :key="country[0]">
+        {{ country[0] }} - {{ country[1] }}
       </li>
     </transition-group>
   </div>
@@ -132,6 +132,11 @@ export default {
 
 body {
   margin: 30px;
+}
+
+#flip-list {
+  position: absolute;
+  right: 65px;
 }
 
 .list-move {
