@@ -140,6 +140,11 @@ body {
   right: 65px;
 }
 
+ul > li:first-child {
+  font-size: 4rem;
+  color: BlueViolet;
+}
+
 li {
   color: orange;
   font-size: 3rem;
