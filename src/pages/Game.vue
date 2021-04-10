@@ -132,6 +132,7 @@ export default {
 
 body {
   margin: 30px;
+  font-size: 3em;
 }
 
 #flip-list {
@@ -140,7 +141,9 @@ body {
 }
 
 li {
-  text-shadow: 0 0 1px white, 0 0 1px white, 0 0 1px white, 0 0 1px white;
+  color: orange;
+  font-size: 3rem;
+  text-shadow: 0 0 3px black, 0 0 3px black, 0 0 3px black, 0 0 3px black;
 }
 
 .list-move {
