@@ -36,7 +36,9 @@ export default {
   computed: {
     orderedGuesses: function () {
       console.log(_.sortBy(_.toPairs(this.guesses), 1).reverse());
-      return _.sortBy(_.toPairs(this.guesses), 1).reverse();
+      //return _.sortBy(_.toPairs(this.guesses), 1).reverse();
+      var temp = _.sortBy(_.toPairs(this.guesses), 1).reverse();
+      return 7 ? temp.slice(0, 7) : temp
       //return this.guesses;
       //return _.orderBy(this.guesses, "count", "desc");
     }
