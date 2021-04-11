@@ -144,7 +144,12 @@ body {
 
 ul > li:first-child {
   font-size: 4rem;
-  color: BlueViolet;
+  color: #d09ffe;
+}
+
+ul > li:first-child + li {
+  font-size: 3.5rem;
+  color: #ff96a8;
 }
 
 li {
